@@ -2,6 +2,7 @@ package com.attornatus.avaliacao.apiAttornatus.dtos;
 
 import com.attornatus.avaliacao.apiAttornatus.entities.Endereco;
 import com.attornatus.avaliacao.apiAttornatus.entities.Pessoa;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 
 public class EnderecoDTO {
@@ -13,6 +14,10 @@ public class EnderecoDTO {
     private String numero;
     @NotEmpty
     private String cidade;
+
+
+
+
 
     public String getLogradouro() {
         return logradouro;
@@ -53,5 +58,7 @@ public class EnderecoDTO {
         this.cidade = endereco.getCidade();
         this.logradouro = endereco.getLogradouro();
         this.numero = endereco.getNumero();
+
     }
+
 }

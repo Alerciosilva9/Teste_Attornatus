@@ -1,6 +1,7 @@
 package com.attornatus.avaliacao.apiAttornatus.controllers;
 
 import com.attornatus.avaliacao.apiAttornatus.dtos.EnderecoDTO;
+import com.attornatus.avaliacao.apiAttornatus.dtos.EnderecoPrincipalDTO;
 import com.attornatus.avaliacao.apiAttornatus.entities.Endereco;
 import com.attornatus.avaliacao.apiAttornatus.entities.Pessoa;
 import com.attornatus.avaliacao.apiAttornatus.services.EnderecoService;
@@ -33,5 +34,8 @@ public class EnderecoController {
         }
         return ResponseEntity.notFound().build();
     }
+
+
+
 
 }

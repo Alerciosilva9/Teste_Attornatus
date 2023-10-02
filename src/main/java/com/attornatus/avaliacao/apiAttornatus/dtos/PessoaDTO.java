@@ -1,6 +1,7 @@
 package com.attornatus.avaliacao.apiAttornatus.dtos;
 
 import com.attornatus.avaliacao.apiAttornatus.entities.Pessoa;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 
 public class PessoaDTO {
@@ -9,6 +10,10 @@ public class PessoaDTO {
 
     @NotBlank
     private String dataNascimento;
+
+
+
+
     public PessoaDTO(){
     }
     public PessoaDTO(Pessoa pessoa){
@@ -30,7 +35,6 @@ public class PessoaDTO {
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
 
 
 }

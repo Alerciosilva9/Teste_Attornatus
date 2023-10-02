@@ -15,6 +15,7 @@ public class Endereco {
     private String numero;
     private String cidade;
 
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name="pessoa_id", referencedColumnName="id",nullable=false)

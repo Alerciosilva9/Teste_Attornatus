@@ -19,9 +19,29 @@ public class Pessoa {
     private String nome;
 
     private String dataNascimento;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_principal", referencedColumnName = "id",nullable=true)
+    private Endereco enderecoPrincipal;
     @OneToMany(mappedBy="pessoa")
     private List<Endereco> enderecos;
+
+
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
+
+    public Endereco getEnderecoPrincipal() {
+        return enderecoPrincipal;
+    }
+
+    public void setEnderecoPrincipal(Endereco enderecoPrincipal) {
+        this.enderecoPrincipal = enderecoPrincipal;
+    }
 
     public Pessoa(){
 
