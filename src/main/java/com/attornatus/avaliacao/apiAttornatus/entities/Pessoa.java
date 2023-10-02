@@ -1,5 +1,6 @@
 package com.attornatus.avaliacao.apiAttornatus.entities;
 
+import com.attornatus.avaliacao.apiAttornatus.dtos.PessoaDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -14,13 +15,21 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
-    @NotBlank(message = "Informe o Nome Da pessoa")
+
     private String nome;
-    @NotNull
+
     private String dataNascimento;
 
     @OneToMany(mappedBy="pessoa")
     private List<Endereco> enderecos;
+
+    public Pessoa(){
+
+    }
+    public Pessoa(PessoaDTO dto){
+        this.nome = dto.getNome();
+        this.dataNascimento = dto.getDataNascimento();
+    }
 
     public long getId() {
         return id;

@@ -1,5 +1,6 @@
 package com.attornatus.avaliacao.apiAttornatus.entities;
 
+import com.attornatus.avaliacao.apiAttornatus.dtos.EnderecoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -18,6 +19,17 @@ public class Endereco {
     @JsonIgnore
     @JoinColumn(name="pessoa_id", referencedColumnName="id",nullable=false)
     private Pessoa pessoa;
+
+    public Endereco(){
+
+    }
+
+    public Endereco(EnderecoDTO dto){
+        this.logradouro = dto.getLogradouro();
+        this.cidade = dto.getCidade();
+        this.numero = dto.getNumero();
+        this.cep = dto.getCep();
+    }
 
     public long getId() {
         return id;
