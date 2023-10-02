@@ -1,19 +1,20 @@
 package com.attornatus.avaliacao.apiAttornatus.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "pessoa")
 public class Pessoa {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    private long id;
     private String nome;
     private String dataNascimento;
 
-    @OneToOne
-    private Endereco endereco;
+    @OneToMany(mappedBy="pessoa")
+    private List<Endereco> endereco;
 
 }
