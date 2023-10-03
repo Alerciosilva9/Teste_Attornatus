@@ -13,6 +13,11 @@ public class PessoaDTO {
 
     private long id;
 
+    public PessoaDTO(String nome, String data) {
+        this.nome = nome;
+        this.dataNascimento = data;
+    }
+
 
     public long getId() {
         return id;

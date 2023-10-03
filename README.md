@@ -1,7 +1,7 @@
 # Attornatus TESTE API
 
 Este repositório contém uma aplicação desenvolvida para o teste técnico da vaga de desenvolvedor BackEnd da Attornatus.
-A API implementa disponibiliza um serviço de cadastro e edição de Pessoas e Endereços. 
+A API disponibiliza um serviço de cadastro e edição de Pessoas e Endereços. 
 A API foi desenvolvida com Spring, utilizando o banco H2 em mémoria e JUNIT para aplicação de Testes Unitarios.
 
 A aplicação desenvolvida permite o cadastro e edição de Pessoas e Endereços Vinculados as mesmas.
@@ -147,7 +147,7 @@ A resposta para a requisição, será da seguinte forma:
 
 A criação de endereços dentro da aplicação é feita atráves de uma requisição POST para o seguinte caminho:
 
-POST   /pessoa/{ id }/pessoa
+POST   /pessoa/ { id } /endereco
 
 onde o Id da pessoa a quem pertence o novo endereço, deve ser informado no caminho da requisição:
 
@@ -162,7 +162,7 @@ O corpo da requisição deverá conter as seguintes propriedades:
     }
 ```
 
-A resposta para a requisição retornará um código `200 OK` , e o corpo da resposta será da seguinte forma:
+A resposta para a requisição retornará um código `201 CREATED` , e o corpo da resposta será da seguinte forma:
 
 ```javascript
     {
@@ -175,3 +175,35 @@ A resposta para a requisição retornará um código `200 OK` , e o corpo da res
 
 Caso o Id informado não pertença a nenhuma pesssoa requisição retornara uma resposta contendo o código `404 NOT FOUND`, caso o corpo
 da requisiçao não contenha os campos nescessarios, a resposta será `404 BAD REQUEST`.
+
+### Listar Endereços de uma Pessoa
+
+Para a buscar a lista de todos os endereços de uma pessoa cadastradas  na aplicação, deve se fazer uma solicitação GET para o seguinte caminho:
+
+
+GET /pessoa/ { id } /endereco
+
+A solicitação irá retornar o código `200 OK`caso a requisição obtenha sucesso, contendo uma mensagem semelhante a resposta abaixo:
+
+```javascript
+{
+        "logradouro": "Rua da Luz",
+        "cep": "56345-011",
+        "numero": "12",
+        "cidade": "São lUis"
+    },
+    {
+        "logradouro": "Rua do Sol",
+        "cep": "63333-333",
+        "numero": "62",
+        "cidade": "São lUis"
+    },
+    {
+        "logradouro": "Rua da Lua",
+        "cep": "676767-777",
+        "numero": "45",
+        "cidade": "São Paulo"
+    }
+```
+
+Caso o Id informado não pertença a nenhuma pessoa cadastrada, a resposta retornada será um `404 NOT FOUND`, caso ainda não exista nenhum endereço cadastrado para aquela pessoa a resposta será um 200 OK`contendo um objeto vazio.
