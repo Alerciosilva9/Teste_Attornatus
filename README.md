@@ -140,3 +140,38 @@ A resposta para a requisição, será da seguinte forma:
         "dataNascimento": "12/12/2022",
     }
 ```
+
+
+
+### Criar Endereço
+
+A criação de endereços dentro da aplicação é feita atráves de uma requisição POST para o seguinte caminho:
+
+POST   /pessoa/{ id }/pessoa
+
+onde o Id da pessoa a quem pertence o novo endereço, deve ser informado no caminho da requisição:
+
+O corpo da requisição deverá conter as seguintes propriedades:
+
+```javascript
+    {
+       "logradouro":"Rua do Sol",
+       "cep":"67899-000",
+       "numero":75,
+       "cidade":"São João"
+    }
+```
+
+A resposta para a requisição retornará um código `200 OK` , e o corpo da resposta será da seguinte forma:
+
+```javascript
+    {
+       "logradouro":"Rua do Sol",
+       "cep":"67899-000",
+       "numero":75,
+       "cidade":"São João"
+    }
+```
+
+Caso o Id informado não pertença a nenhuma pesssoa requisição retornara uma resposta contendo o código `404 NOT FOUND`, caso o corpo
+da requisiçao não contenha os campos nescessarios, a resposta será `404 BAD REQUEST`.
