@@ -75,11 +75,5 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public List<Endereco> getEndereco() {
-        return this.enderecos;
-    }
 
-    public void setEndereco(List<Endereco> endereco) {
-        this.enderecos = endereco;
-    }
 }

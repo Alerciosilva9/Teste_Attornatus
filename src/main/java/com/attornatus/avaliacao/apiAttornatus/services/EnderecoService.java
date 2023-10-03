@@ -24,7 +24,7 @@ public class EnderecoService {
     public List<Endereco> buscar(long id){
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
         if(pessoa.isPresent()){
-            return pessoa.get().getEndereco();
+            return pessoa.get().getEnderecos();
         }
         return null;
     }
@@ -42,7 +42,7 @@ public class EnderecoService {
     public List<EnderecoDTO> buscarEnderecos(long id){
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
         if(pessoa.isPresent()){
-            List<Endereco> enderecos = pessoa.get().getEndereco();
+            List<Endereco> enderecos = pessoa.get().getEnderecos();
             return enderecos.stream().map(r -> new EnderecoDTO(r)).collect(Collectors.toList());
         }
         return null;

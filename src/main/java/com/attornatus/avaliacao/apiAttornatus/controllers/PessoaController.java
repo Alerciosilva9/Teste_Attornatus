@@ -22,7 +22,7 @@ public class PessoaController {
     PessoaService service;
 
     @GetMapping
-    public List<Pessoa> buscar(){
+    public List<PessoaDTO> buscar(){
         return service.buscarTodos();
     }
 

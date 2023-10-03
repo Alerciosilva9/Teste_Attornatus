@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -22,8 +23,8 @@ public class PessoaService {
     @Autowired
     EnderecoRepository enderecoRepository;
 
-    public List<Pessoa> buscarTodos(){
-        return repository.findAll();
+    public List<PessoaDTO> buscarTodos(){
+        return repository.findAll().stream().map(r -> new PessoaDTO(r)).collect(Collectors.toList());
     }
 
     public PessoaDetalhadoDTO buscarPessoa(long id) {
