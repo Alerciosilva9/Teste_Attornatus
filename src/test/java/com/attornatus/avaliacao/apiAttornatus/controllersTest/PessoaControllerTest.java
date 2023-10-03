@@ -64,14 +64,4 @@ public class PessoaControllerTest {
                 contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto)));
         result.andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
-    /*
-    @Test
-    @DisplayName("Verficar se Api atualiza com sucesso para uma pessoa existente")
-    public void PessoaController_atualizar_pessoa__retorna_200OK() throws Exception{
-        PessoaDTO atualizardto = new PessoaDTO("Marcos",null);
-        ResultActions resultH = mock.perform(patch("/pessoa/1").
-                contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(atualizardto)));
-
-        resultH.andExpect(MockMvcResultMatchers.status().isOk());
-    }*/
 }

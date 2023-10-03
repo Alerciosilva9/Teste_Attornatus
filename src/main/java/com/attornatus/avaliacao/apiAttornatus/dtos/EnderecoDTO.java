@@ -53,6 +53,12 @@ public class EnderecoDTO {
     public EnderecoDTO(){
 
     }
+    public EnderecoDTO(String logradouro, String cep, String numero, String cidade){
+        this.numero = numero;
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.cidade = cidade;
+    }
     public EnderecoDTO(Endereco endereco){
         this.cep = endereco.getCep();
         this.cidade = endereco.getCidade();
