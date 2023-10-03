@@ -97,7 +97,7 @@ onde o corpo da requisição deve conter os seguintes campos:
 ```javascript
     {
         "nome": "Carlos",
-        "dataNascimento": "12/12/2022"
+        "dataNascimento": "12-12-2022"
     }
 ```
 
@@ -137,7 +137,7 @@ A resposta para a requisição, será da seguinte forma:
     { 
         "id": 1,
         "nome": "Antonio",
-        "dataNascimento": "12/12/2022",
+        "dataNascimento": "12-12-2022",
     }
 ```
 
@@ -207,3 +207,29 @@ A solicitação irá retornar o código `200 OK`caso a requisição obtenha suce
 ```
 
 Caso o Id informado não pertença a nenhuma pessoa cadastrada, a resposta retornada será um `404 NOT FOUND`, caso ainda não exista nenhum endereço cadastrado para aquela pessoa a resposta será um 200 OK`contendo um objeto vazio.
+
+
+
+
+
+### Definir endereço principal de uma pessoa
+
+Para definir o endereço principal de uma pessoa, deve se fazer uma requição informado o Id da Pessoa e o Id do endereço, utilizando o seguinte caminho:
+
+PATCH /pessoa/ { id } /principal
+
+Onde o Id da pessoa a quem deseja-se definir o endereço principal, deve ser informado no caminho da requisição.
+
+O id do Endereço ao qual deseja-se definir como principal para aquela pessoa é informado no corpo da requisição, semelhante a requisição abaixo:
+
+
+```javascript
+    {
+        "id_endereco":1
+    }
+```
+
+A solicitação irá retornar o código `204 NO CONTENT`caso a requisição obtenha sucesso.
+
+
+Caso o Id informado não pertença a nenhuma pessoa cadastrada ou o endereço não exista, a resposta retornada será um `404 NOT FOUND`, bem como quando o endereço informado não pertença a aquela pessoa.

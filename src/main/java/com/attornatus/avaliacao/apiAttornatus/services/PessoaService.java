@@ -56,6 +56,7 @@ public class PessoaService {
         Optional<Pessoa> pessoa = repository.findById(id);
         Optional<Endereco> endereco = enderecoRepository.findById(id_endereco);
         if(pessoa.isPresent() && endereco.isPresent()){
+            if(endereco.get().getPessoa().getId()!=pessoa.get().getId())return false;
             pessoa.get().setEnderecoPrincipal(endereco.get());
             repository.save(pessoa.get());
             return true;

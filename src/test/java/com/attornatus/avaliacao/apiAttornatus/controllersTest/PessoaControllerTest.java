@@ -23,8 +23,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -69,9 +68,10 @@ public class PessoaControllerTest {
     @Test
     @DisplayName("Verficar se Api atualiza com sucesso para uma pessoa existente")
     public void PessoaController_atualizar_pessoa__retorna_200OK() throws Exception{
-        PessoaDTO dto = new PessoaDTO("Marcos",null);
-        ResultActions result = mock.perform(patch("/pessoa/1").
-                contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto)));
-        result.andExpect(MockMvcResultMatchers.status().isOk());
+        PessoaDTO atualizardto = new PessoaDTO("Marcos",null);
+        ResultActions resultH = mock.perform(patch("/pessoa/1").
+                contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(atualizardto)));
+
+        resultH.andExpect(MockMvcResultMatchers.status().isOk());
     }*/
 }

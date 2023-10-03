@@ -13,7 +13,7 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
 
 
     List<Endereco> findAllByPessoa(Pessoa pessoa);
-
+    Endereco findByIdAndPessoa(long Id, Pessoa pessoa);
 
 
 

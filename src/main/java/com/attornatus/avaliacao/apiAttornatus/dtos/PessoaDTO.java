@@ -3,12 +3,16 @@ package com.attornatus.avaliacao.apiAttornatus.dtos;
 import com.attornatus.avaliacao.apiAttornatus.entities.Pessoa;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 public class PessoaDTO {
     @NotBlank(message = "Informe o Nome Da pessoa")
     private String nome;
 
-    @NotBlank
+    @Pattern(regexp = "\\d{2}-\\d{2}-\\d{4}", message = "Data de nascimento inválida")
+    @NotNull
     private String dataNascimento;
 
     private long id;
