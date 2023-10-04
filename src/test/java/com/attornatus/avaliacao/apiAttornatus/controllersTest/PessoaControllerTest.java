@@ -46,7 +46,7 @@ public class PessoaControllerTest {
 
     @BeforeEach
     public void init(){
-        pessoa = new PessoaDTO("nome","12/12/2022");
+        pessoa = new PessoaDTO("nome","12-12-2022");
     }
 
     @Test
@@ -64,4 +64,15 @@ public class PessoaControllerTest {
                 contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto)));
         result.andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
+
+    @Test
+    @DisplayName("Verificar atualização de Pessoas por id")
+    public void PessoaController_editar_pessoa_retorna_204NoContent() throws Exception{
+        PessoaDTO dto = new PessoaDTO(null,"12/12/2023");
+        ResultActions result = mock.perform(patch("/pessoa/1").
+                contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto)));
+        result.andExpect(MockMvcResultMatchers.status().isNoContent());
+    }
+
+
 }

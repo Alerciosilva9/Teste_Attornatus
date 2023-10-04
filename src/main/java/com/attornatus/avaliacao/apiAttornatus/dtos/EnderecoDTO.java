@@ -4,14 +4,15 @@ import com.attornatus.avaliacao.apiAttornatus.entities.Endereco;
 import com.attornatus.avaliacao.apiAttornatus.entities.Pessoa;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public class EnderecoDTO {
     @NotEmpty
     private String logradouro;
     @NotEmpty
     private String cep;
-    @NotEmpty
-    private String numero;
+    @NotNull
+    private long numero;
     @NotEmpty
     private String cidade;
 
@@ -35,11 +36,11 @@ public class EnderecoDTO {
         this.cep = cep;
     }
 
-    public String getNumero() {
+    public long getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(long numero) {
         this.numero = numero;
     }
 
@@ -53,7 +54,7 @@ public class EnderecoDTO {
     public EnderecoDTO(){
 
     }
-    public EnderecoDTO(String logradouro, String cep, String numero, String cidade){
+    public EnderecoDTO(String logradouro, String cep, long numero, String cidade){
         this.numero = numero;
         this.logradouro = logradouro;
         this.cep = cep;

@@ -42,7 +42,7 @@ public class EnderecoTestController {
 
     @BeforeEach
     public void init(){
-        endereco = new EnderecoDTO("Rua de Marte",null,"98",null);
+        endereco = new EnderecoDTO("Rua de Marte",null,98,null);
     }
     @Test
     @DisplayName("Verificando se a API responde com 400 Bad Request para requisição sem campos requeridos")

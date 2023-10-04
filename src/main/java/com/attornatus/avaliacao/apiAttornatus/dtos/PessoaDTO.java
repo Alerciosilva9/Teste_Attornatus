@@ -8,10 +8,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public class PessoaDTO {
-    @NotBlank(message = "Informe o Nome Da pessoa")
+    @NotBlank(message = "O campo nome não pode ser nulo")
     private String nome;
 
-    @Pattern(regexp = "\\d{2}-\\d{2}-\\d{4}", message = "Data de nascimento inválida")
+    @Pattern(regexp = "\\d{2}-\\d{2}-\\d{4}", message = "Data de nascimento inválida, escreva na forma dd-mm-aaaa")
     @NotNull
     private String dataNascimento;
 

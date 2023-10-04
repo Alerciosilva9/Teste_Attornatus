@@ -4,7 +4,6 @@ package com.attornatus.avaliacao.apiAttornatus.controllers;
 import com.attornatus.avaliacao.apiAttornatus.dtos.EnderecoPrincipalDTO;
 import com.attornatus.avaliacao.apiAttornatus.dtos.PessoaDTO;
 import com.attornatus.avaliacao.apiAttornatus.dtos.PessoaDetalhadoDTO;
-import com.attornatus.avaliacao.apiAttornatus.entities.Endereco;
 import com.attornatus.avaliacao.apiAttornatus.entities.Pessoa;
 import com.attornatus.avaliacao.apiAttornatus.services.PessoaService;
 import jakarta.validation.Valid;
@@ -42,12 +41,9 @@ public class PessoaController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<PessoaDTO> editarPessoa(@PathVariable long id, @RequestBody PessoaDTO pessoaDTO){
-        PessoaDTO pessoa = service.editar(id,pessoaDTO);
-        if(pessoa!=null){
-            return ResponseEntity.ok().body(pessoa);
-        }
-        return ResponseEntity.notFound().build();
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public PessoaDTO editarPessoa(@PathVariable long id, @RequestBody PessoaDTO pessoaDTO){
+        return service.editar(id,pessoaDTO);
     }
     @PatchMapping("/{id}/principal")
     public ResponseEntity<?> enderecoPrincipal(@PathVariable long id, @RequestBody @Valid EnderecoPrincipalDTO endereco){

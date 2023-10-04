@@ -77,7 +77,7 @@ A solicitação, ira retornar uma mensagem semelhante a resposta abaixo, caso a 
 ```javascript
     {
         "nome": "Carlos",
-        "dataNascimento": "12/12/2022",
+        "dataNascimento": "12-12-2022",
         "id": 1
     }
 ```
@@ -107,7 +107,7 @@ A resposta para a requisição, será da seguinte forma:
     { 
         "id": 1,
         "nome": "Carlos",
-        "dataNascimento": "12/12/2022",
+        "dataNascimento": "12-12-2022",
     }
 ```
 

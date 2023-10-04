@@ -12,7 +12,7 @@ public class Endereco {
     private long id;
     private String logradouro;
     private String cep;
-    private String numero;
+    private long numero;
     private String cidade;
 
 
@@ -56,11 +56,11 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public String getNumero() {
+    public long getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(long numero) {
         this.numero = numero;
     }
 
